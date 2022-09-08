@@ -14,27 +14,24 @@ internal class Program {
         return string.Format("<HTML><BODY>wrgoerbgrihriuhgb.<br>{0}</BODY></HTML>", DateTime.Now);
     }
 
-
-
     
-    private static void Main(string[] args)
+    static async Task Main(string[] args)
     {
+        /*
         var person = new Person("Lars", "lars@gmail.com", "194.62.169.90");
         var getIp = new IpInfo();
-        var personCountryCode= getIp.GetCountryCodeOnIP(person.IP);
-        var genderClient = new GenderApi();
-        var client = genderClient.PlainConsole();
+        var personCountryCode= getIp.GetCountryCodeOnIP(person.IP);*/
 
+        // LQ3YexQLXBmFjXgU5LvBS5hGBPUjTNAcVqUX
 
-        var hej = genderClient.RunTests(client, person.Name, "DK");
-
-        Console.Write(hej);
-
+        var api = new GenderApi("LQ3YexQLXBmFjXgU5LvBS5hGBPUjTNAcVqUX");
+        Console.WriteLine(await api.GetGenderByName("Frank Nielsen"));
+        /*
         var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
         ws.Run();
         Console.WriteLine("A simple webserver. Press a key to quit.");
         Console.ReadKey();
-        ws.Stop();
+        ws.Stop();*/
     }
 }
 

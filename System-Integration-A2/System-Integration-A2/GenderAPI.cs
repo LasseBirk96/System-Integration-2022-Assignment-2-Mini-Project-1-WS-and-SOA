@@ -8,42 +8,47 @@ namespace GenderTiger
 {
     public class GenderApi
     {
-   
-        public GenderApi()
+        private readonly GenderApiClient client;
+
+        public GenderApi(String apiKey, String baseAddress = "https://gender-api.com")
         {
-  
-
-        }
-        public async Task<string> RunTests(GenderApiClient client, string Name, string CountryCode)
-        {
-            var responseStats = await client.GetStatistics();
-           
-                Console.WriteLine($"IsLimitReached: {responseStats.IsLimitReached}");
-                Console.WriteLine($"Remaning requests: {responseStats.RemaningRequests}");
-
-                var responseName = await client.GetByNameAndCountry2Alpha(Name, CountryCode);
-            Console.WriteLine(responseName);
-            var result = Convert.ToString(responseName.GenderType.DisplayName);
-     
-            return result;
-
-    
-        }
-
-      
-        public GenderApiClient PlainConsole()
-        {
-            // client is thread-safe, and can be used static.
-            var client = new GenderApiClient(
+            this.client = new GenderApiClient(
                 new HttpClient
                 {
-                    BaseAddress = new Uri("https://gender-api.com")
+                    BaseAddress = new Uri(baseAddress)
                 },
                 new GenderApiConfiguration
                 {
-                    ApiKey = "LQ3YexQLXBmFjXgU5LvBS5hGBPUjTNAcVqUX"
-        });
-            return client;
+                    ApiKey = apiKey
+                }
+            );
+        }
+
+        public async Task<String> GetGenderByName(String name, String countryCode = "DK")
+        {
+            var response = await this.GetGenderNameByName(name, countryCode);
+            return response.GenderType.DisplayName;
+        }
+
+        public async Task<GenderApiNameResponse> GetGenderNameByName(String name, String countryCode = "DK")
+        {
+            if (await this.IsLimitedReached())
+            {
+                throw new Exception("LIMIT IS REACHEDD!!!!!");
+            }
+
+            return await this.client.GetByNameAndCountry2Alpha(name, countryCode);
+        }
+
+        public async Task<GenderApiStatisticsResponse> GetStatistics()
+        {
+            return await this.client.GetStatistics();
+        }
+
+        public async Task<Boolean> IsLimitedReached()
+        {
+            var statistics = await this.GetStatistics();
+            return statistics.IsLimitReached;
         }
     }
 }
