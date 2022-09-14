@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{3D8B0D7E-1E08-4BCF-9CD2-EBE484812BB3}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="System-Integration-A2/Program.cs">
+    <Files>
+      <File FileName="System-Integration-A2/GenderAPI.cs" Line="33" Column="69" />
+      <File FileName="System-Integration-A2/Program.cs" Line="3" Column="23" />
+      <File FileName="System-Integration-A2/Entities/AccelerationService.cs" Line="13" Column="6" />
+      <File FileName="System-Integration-A2/Entities/ServiceContract.cs" Line="13" Column="1" />
+      <File FileName="System-Integration-A2/Entities/DataContract.cs" Line="13" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="System-Integration-A2" expanded="True">
+            <Node name="System-Integration-A2" expanded="True">
+              <Node name="Entities" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.System-Integration-A2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

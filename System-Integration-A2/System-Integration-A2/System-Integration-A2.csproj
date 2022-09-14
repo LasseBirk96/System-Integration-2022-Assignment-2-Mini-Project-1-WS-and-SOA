@@ -12,14 +12,16 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="MicroKnights.Gender-API" Version="1.4.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="SoapCore" Version="1.1.0.31" />
+    <PackageReference Include="Jehoel.AspNetDependencyInjection" Version="4.0.0" />
+    <PackageReference Include="Jehoel.AspNetDependencyInjection.WebApi" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="MicroKnights.Gender-API" />
     <None Remove="Microsoft.Extensions.DependencyInjection" />
-    <None Remove="Entities\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
+    <None Remove="SoapCore" />
+    <None Remove="Jehoel.AspNetDependencyInjection" />
+    <None Remove="Jehoel.AspNetDependencyInjection.WebApi" />
   </ItemGroup>
 </Project>
